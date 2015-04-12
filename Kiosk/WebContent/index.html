@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="de" data-ng-app="kioskModule">
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="bootstrap.min.css" />
+	<script src="angular.min.js"></script>
+	<script src="papers.js"></script>
+	<script src="kiosk.js"></script>
+</head>
+<body data-ng-controller="KioskController as kiosk">
+	<div class="list-group">
+		<div class="list-group-item" data-ng-repeat="paper in kiosk.papers">
+			<h1 data-ng-bind="paper.name | uppercase"></h1>
+			<h3>
+				Titelstory: {{paper.title}} <em class="pull-right">Preis:
+					{{paper.price | currency:"€ " }}</em>
+			</h3>
+			<div data-authors="paper.authors" data-size="{{size}}"></div>
+		</div>
+	</div>
+	<div>
+		Anzahl Autoren: <input ng-model="size" type="number">
+	</div>
+</body>
+</html>
